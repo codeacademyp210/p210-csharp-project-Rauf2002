@@ -1,0 +1,86 @@
+--CREATE DATABASE Academy
+
+--CREATE TABLE Specialities (
+--	Id int IDENTITY(1,1) PRIMARY KEY,
+--	Name nvarchar(50) NOT NULL
+--);
+--INSERT INTO Specialities (Name)
+--VALUES ('Developer'),
+--('Designer'),
+--('System administrator');
+
+--CREATE TABLE Classrooms (
+--	Id int IDENTITY(1,1) PRIMARY KEY,
+--	Name nvarchar(30) NOT NULL,
+--	Status bit NOT NULL
+--);
+--INSERT INTO Classrooms (Name,Status)
+--VALUES ('Titan',1),
+--('Mercury',1),
+--('Mars',1),
+--('Neptune',1),
+--('Jupiter',1),
+--('Moon',1),
+--('Pluto',1),
+--('Venus',1);
+
+--CREATE TABLE [Education Programs] (
+--	Id int IDENTITY(1,1) PRIMARY KEY,
+--	Name nvarchar(30) NOT NULL,
+--	Price int NOT NULL,
+--	Status bit NOT NULL
+--);
+--INSERT INTO [Education Programs] (Name,Price,Status)
+--VALUES ('Programming',3500,1),
+--('Digital Marketing',3000,1),
+--('Graphic and Web Design',3200,1),
+--('3D Modeling',3000,1),
+--('System Administrator',3300,1),
+--('Ms Office',2900,1);
+
+--CREATE TABLE Positions (
+--	Id int IDENTITY(1,1) PRIMARY KEY,
+--	Name nvarchar(30) NOT NULL,
+--	Status bit NOT NULL
+--);
+--INSERT INTO Positions (Name,Status)
+--VALUES ('CEO',1),
+--('Consultant',1),
+--('Receptionist',1),
+--('Cleaner',1),
+--('It Tech',1),
+--('System Administrator',1),
+--('Mentor',1);
+
+--CREATE TABLE Employees (
+--	Id int IDENTITY(1,1) PRIMARY KEY,
+--	Name nvarchar(30) NOT NULL,
+--	Surname nvarchar(30) NOT NULL,
+--	Email nvarchar(30) NOT NULL,
+--	Phone nvarchar(30) NOT NULL,
+--	PositionId int NOT NULL FOREIGN KEY REFERENCES Positions(Id),
+--	StartTime Datetime NOT NULL,
+--	Salary int NOT NULL,
+--	Status bit NOT NULL
+--);
+
+--CREATE TABLE Teachers (
+--	Id int IDENTITY(1,1) PRIMARY KEY,
+--	Name nvarchar(30) NOT NULL,
+--	Surname nvarchar(30) NOT NULL,
+--	SpecialityId int NOT NULL FOREIGN KEY REFERENCES Specialities(Id),
+--	Email nvarchar(30) NOT NULL,
+--	Phone nvarchar(30) NOT NULL,
+--	Status bit NOT NULL
+--);
+
+--CREATE TABLE Groups (
+--	Id int IDENTITY(1,1) PRIMARY KEY,
+--	Name nvarchar(30) NOT NULL,
+--	ClassroomId int NOT NULL FOREIGN KEY REFERENCES Classrooms(Id),
+--	TeacherId int NOT NULL FOREIGN KEY REFERENCES Teachers(Id),
+--	MentorId int NOT NULL FOREIGN KEY REFERENCES Employees(Id),
+--	Capacity int NOT NULL,
+--	EducationId int NOT NULL FOREIGN KEY REFERENCES [Education Programs](Id),
+--	Status bit NOT NULL
+--);

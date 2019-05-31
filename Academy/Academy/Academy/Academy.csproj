@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6D581B65-05E5-49F5-9BC0-903F3FE3DABE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Academy</RootNamespace>
+    <AssemblyName>Academy</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClassroomCRUD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClassroomCRUD.Designer.cs">
+      <DependentUpon>ClassroomCRUD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EducationCRUD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EducationCRUD.Designer.cs">
+      <DependentUpon>EducationCRUD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeCRUD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeCRUD.Designer.cs">
+      <DependentUpon>EmployeeCRUD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeTable.Designer.cs">
+      <DependentUpon>EmployeeTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GradeTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GradeTable.Designer.cs">
+      <DependentUpon>GradeTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GroupCRUD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GroupCRUD.Designer.cs">
+      <DependentUpon>GroupCRUD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GroupTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GroupTable.Designer.cs">
+      <DependentUpon>GroupTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AcademyInfo.cs">
+      <DependentUpon>AcademyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AcademyModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AcademyModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AcademyModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AcademyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AcademyModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AcademyModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Classrooms.cs">
+      <DependentUpon>AcademyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Education_Programs.cs">
+      <DependentUpon>AcademyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Employees.cs">
+      <DependentUpon>AcademyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Grades.cs">
+      <DependentUpon>AcademyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Groups.cs">
+      <DependentUpon>AcademyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Positions.cs">
+      <DependentUpon>AcademyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Specialities.cs">
+      <DependentUpon>AcademyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Students.cs">
+      <DependentUpon>AcademyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tasks.cs">
+      <DependentUpon>AcademyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Teachers.cs">
+      <DependentUpon>AcademyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PositionCRUD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PositionCRUD.Designer.cs">
+      <DependentUpon>PositionCRUD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StudentCRUD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentCRUD.Designer.cs">
+      <DependentUpon>StudentCRUD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentTable.Designer.cs">
+      <DependentUpon>StudentTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaskCRUD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaskCRUD.Designer.cs">
+      <DependentUpon>TaskCRUD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaskTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaskTable.Designer.cs">
+      <DependentUpon>TaskTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherCRUD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeacherCRUD.Designer.cs">
+      <DependentUpon>TeacherCRUD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeacherTable.Designer.cs">
+      <DependentUpon>TeacherTable.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ClassroomCRUD.resx">
+      <DependentUpon>ClassroomCRUD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EducationCRUD.resx">
+      <DependentUpon>EducationCRUD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeCRUD.resx">
+      <DependentUpon>EmployeeCRUD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeTable.resx">
+      <DependentUpon>EmployeeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GradeTable.resx">
+      <DependentUpon>GradeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GroupCRUD.resx">
+      <DependentUpon>GroupCRUD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GroupTable.resx">
+      <DependentUpon>GroupTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PositionCRUD.resx">
+      <DependentUpon>PositionCRUD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="StudentCRUD.resx">
+      <DependentUpon>StudentCRUD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentTable.resx">
+      <DependentUpon>StudentTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaskCRUD.resx">
+      <DependentUpon>TaskCRUD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaskTable.resx">
+      <DependentUpon>TaskTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeacherCRUD.resx">
+      <DependentUpon>TeacherCRUD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeacherTable.resx">
+      <DependentUpon>TeacherTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Models\AcademyModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AcademyModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\AcademyModel.edmx.diagram">
+      <DependentUpon>AcademyModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\AcademyModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AcademyModel.edmx</DependentUpon>
+      <LastGenOutput>AcademyModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\AcademyModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AcademyModel.edmx</DependentUpon>
+      <LastGenOutput>AcademyModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

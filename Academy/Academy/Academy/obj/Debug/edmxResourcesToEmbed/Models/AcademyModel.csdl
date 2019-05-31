@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AcademyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AcademyInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Classrooms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Groups" Relationship="Self.FK__Groups__Classroo__44FF419A" FromRole="Classrooms" ToRole="Groups" />
+  </EntityType>
+  <EntityType Name="Education_Programs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Price" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Groups" Relationship="Self.FK__Groups__Educatio__47DBAE45" FromRole="Education_Programs" ToRole="Groups" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PositionId" Type="Int32" Nullable="false" />
+    <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Salary" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Positions" Relationship="Self.FK__Employees__Posit__3F466844" FromRole="Employees" ToRole="Positions" />
+    <NavigationProperty Name="Groups" Relationship="Self.FK__Groups__MentorId__46E78A0C" FromRole="Employees" ToRole="Groups" />
+  </EntityType>
+  <EntityType Name="Grades">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Grade" Type="Int32" Nullable="false" />
+    <Property Name="StudentId" Type="Int32" Nullable="false" />
+    <Property Name="TaskId" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Students" Relationship="Self.FK__Grades__StudentI__5070F446" FromRole="Grades" ToRole="Students" />
+    <NavigationProperty Name="Tasks" Relationship="Self.FK__Grades__TaskId__5165187F" FromRole="Grades" ToRole="Tasks" />
+  </EntityType>
+  <EntityType Name="Groups">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClassroomId" Type="Int32" Nullable="false" />
+    <Property Name="TeacherId" Type="Int32" Nullable="false" />
+    <Property Name="MentorId" Type="Int32" Nullable="false" />
+    <Property Name="Capacity" Type="Int32" Nullable="false" />
+    <Property Name="EducationId" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Classrooms" Relationship="Self.FK__Groups__Classroo__44FF419A" FromRole="Groups" ToRole="Classrooms" />
+    <NavigationProperty Name="Education_Programs" Relationship="Self.FK__Groups__Educatio__47DBAE45" FromRole="Groups" ToRole="Education_Programs" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK__Groups__MentorId__46E78A0C" FromRole="Groups" ToRole="Employees" />
+    <NavigationProperty Name="Teachers" Relationship="Self.FK__Groups__TeacherI__45F365D3" FromRole="Groups" ToRole="Teachers" />
+    <NavigationProperty Name="Students" Relationship="Self.FK__Students__GroupI__4AB81AF0" FromRole="Groups" ToRole="Students" />
+    <NavigationProperty Name="Tasks" Relationship="Self.FK__Tasks__GroupId__4D94879B" FromRole="Groups" ToRole="Tasks" />
+  </EntityType>
+  <EntityType Name="Positions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK__Employees__Posit__3F466844" FromRole="Positions" ToRole="Employees" />
+  </EntityType>
+  <EntityType Name="Specialities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Teachers" Relationship="Self.FK__Teachers__Specia__4222D4EF" FromRole="Specialities" ToRole="Teachers" />
+  </EntityType>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Fee" Type="Int32" Nullable="false" />
+    <Property Name="GroupId" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Grades" Relationship="Self.FK__Grades__StudentI__5070F446" FromRole="Students" ToRole="Grades" />
+    <NavigationProperty Name="Groups" Relationship="Self.FK__Students__GroupI__4AB81AF0" FromRole="Students" ToRole="Groups" />
+  </EntityType>
+  <EntityType Name="Tasks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Deadline" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="GroupId" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Grades" Relationship="Self.FK__Grades__TaskId__5165187F" FromRole="Tasks" ToRole="Grades" />
+    <NavigationProperty Name="Groups" Relationship="Self.FK__Tasks__GroupId__4D94879B" FromRole="Tasks" ToRole="Groups" />
+  </EntityType>
+  <EntityType Name="Teachers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SpecialityId" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Groups" Relationship="Self.FK__Groups__TeacherI__45F365D3" FromRole="Teachers" ToRole="Groups" />
+    <NavigationProperty Name="Specialities" Relationship="Self.FK__Teachers__Specia__4222D4EF" FromRole="Teachers" ToRole="Specialities" />
+  </EntityType>
+  <Association Name="FK__Groups__Classroo__44FF419A">
+    <End Role="Classrooms" Type="Self.Classrooms" Multiplicity="1" />
+    <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Classrooms">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Groups">
+        <PropertyRef Name="ClassroomId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Groups__Educatio__47DBAE45">
+    <End Role="Education_Programs" Type="Self.Education_Programs" Multiplicity="1" />
+    <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Education_Programs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Groups">
+        <PropertyRef Name="EducationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employees__Posit__3F466844">
+    <End Role="Positions" Type="Self.Positions" Multiplicity="1" />
+    <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Positions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="PositionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Groups__MentorId__46E78A0C">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+    <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Groups">
+        <PropertyRef Name="MentorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Grades__StudentI__5070F446">
+    <End Role="Students" Type="Self.Students" Multiplicity="1" />
+    <End Role="Grades" Type="Self.Grades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Grades">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Grades__TaskId__5165187F">
+    <End Role="Tasks" Type="Self.Tasks" Multiplicity="1" />
+    <End Role="Grades" Type="Self.Grades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tasks">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Grades">
+        <PropertyRef Name="TaskId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Groups__TeacherI__45F365D3">
+    <End Role="Teachers" Type="Self.Teachers" Multiplicity="1" />
+    <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teachers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Groups">
+        <PropertyRef Name="TeacherId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Students__GroupI__4AB81AF0">
+    <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
+    <End Role="Students" Type="Self.Students" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Students">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tasks__GroupId__4D94879B">
+    <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
+    <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tasks">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Teachers__Specia__4222D4EF">
+    <End Role="Specialities" Type="Self.Specialities" Multiplicity="1" />
+    <End Role="Teachers" Type="Self.Teachers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specialities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Teachers">
+        <PropertyRef Name="SpecialityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AcademyEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AcademyInfo" EntityType="Self.AcademyInfo" />
+    <EntitySet Name="Classrooms" EntityType="Self.Classrooms" />
+    <EntitySet Name="Education_Programs" EntityType="Self.Education_Programs" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" />
+    <EntitySet Name="Grades" EntityType="Self.Grades" />
+    <EntitySet Name="Groups" EntityType="Self.Groups" />
+    <EntitySet Name="Positions" EntityType="Self.Positions" />
+    <EntitySet Name="Specialities" EntityType="Self.Specialities" />
+    <EntitySet Name="Students" EntityType="Self.Students" />
+    <EntitySet Name="Tasks" EntityType="Self.Tasks" />
+    <EntitySet Name="Teachers" EntityType="Self.Teachers" />
+    <AssociationSet Name="FK__Groups__Classroo__44FF419A" Association="Self.FK__Groups__Classroo__44FF419A">
+      <End Role="Classrooms" EntitySet="Classrooms" />
+      <End Role="Groups" EntitySet="Groups" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Groups__Educatio__47DBAE45" Association="Self.FK__Groups__Educatio__47DBAE45">
+      <End Role="Education_Programs" EntitySet="Education_Programs" />
+      <End Role="Groups" EntitySet="Groups" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employees__Posit__3F466844" Association="Self.FK__Employees__Posit__3F466844">
+      <End Role="Positions" EntitySet="Positions" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Groups__MentorId__46E78A0C" Association="Self.FK__Groups__MentorId__46E78A0C">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Groups" EntitySet="Groups" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Grades__StudentI__5070F446" Association="Self.FK__Grades__StudentI__5070F446">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Grades" EntitySet="Grades" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Grades__TaskId__5165187F" Association="Self.FK__Grades__TaskId__5165187F">
+      <End Role="Tasks" EntitySet="Tasks" />
+      <End Role="Grades" EntitySet="Grades" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Groups__TeacherI__45F365D3" Association="Self.FK__Groups__TeacherI__45F365D3">
+      <End Role="Teachers" EntitySet="Teachers" />
+      <End Role="Groups" EntitySet="Groups" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Students__GroupI__4AB81AF0" Association="Self.FK__Students__GroupI__4AB81AF0">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="Students" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tasks__GroupId__4D94879B" Association="Self.FK__Tasks__GroupId__4D94879B">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="Tasks" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Teachers__Specia__4222D4EF" Association="Self.FK__Teachers__Specia__4222D4EF">
+      <End Role="Specialities" EntitySet="Specialities" />
+      <End Role="Teachers" EntitySet="Teachers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
